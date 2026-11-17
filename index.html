@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <title>Redirecting...</title>
     <script>
-        // URL ke saare query parameters (jaise ?email=...) ko securely pakdo
+        // URL ke saare query parameters ko securely pakdo
         const queryString = window.location.search;
         
         // InfinityFree par bani track.php par redirect karo
         const targetUrl = "https://resolven.infinityfree.io/track.php" + queryString;
+        
+        // Instant Meta Refresh header dynamically inject karo taaki bot/prefetch bhi miss na ho
+        const meta = document.createElement('meta');
+        meta.httpEquiv = "refresh";
+        meta.content = "0;url=" + targetUrl;
+        document.getElementsByTagName('head')[0].appendChild(meta);
         
         // Browser history clean karke redirect karo
         window.location.replace(targetUrl);
