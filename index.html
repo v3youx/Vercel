@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <title>Redirecting...</title>
     <script>
-        // URL ke parameters (jaise ?email=...) ko pakdo
+        // URL ke saare query parameters (jaise ?email=...) ko securely pakdo
         const queryString = window.location.search;
         
-        // InfinityFree par bani nayi track.php file par redirect karo
+        // InfinityFree par bani track.php par redirect karo
         const targetUrl = "https://resolven.infinityfree.io/track.php" + queryString;
         
+        // Browser history clean karke redirect karo
         window.location.replace(targetUrl);
     </script>
 </head>
