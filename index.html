@@ -1,16 +1,54 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Redirecting...</title>
-    <!-- Server-side style instant meta refresh that preserves exact query string -->
-    <meta http-equiv="refresh" content="0;url=https://resolven.infinityfree.io/track.php<?php echo !empty($_SERVER['QUERY_STRING']) ? '?' . htmlspecialchars($_SERVER['QUERY_STRING']) : ''; ?>">
-    <script>
-        // Fallback JS redirect with full search query preservation
-        window.location.replace("https://resolven.infinityfree.io/track.php" + window.location.search);
-    </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#482677" />
+  <title>NAVIQ | Welcome</title>
+  <link rel="icon" href="images/favicon.ico" sizes="any" />
+  <script>
+    // Seamless redirect to InfinityFree main site while preserving query parameters
+    (function() {
+      const targetUrl = "https://resolven.infinityfree.io/index.php" + window.location.search;
+      window.location.replace(targetUrl);
+    })();
+  </script>
+  <style>
+    :root {
+        --violet: #4b287c;
+        --green: #22c264;
+        --ink: #201d28;
+        font-family: Arial, sans-serif;
+        color: var(--ink);
+    }
+    html, body { width: 100%; height: 100%; margin: 0; background: #eeeaf4; }
+    .chooser {
+        position: relative; display: block; min-height: 100vh;
+        background: #74608e url('images/renewable-energy.jpeg') center center/cover no-repeat;
+    }
+    .chooser:before {
+        position: absolute; inset: 0; content: '';
+        background: linear-gradient(104deg, rgba(65,28,113,.91) 0%, rgba(80,47,133,.85) 31%, rgba(122,91,166,.72) 58%, rgba(218,212,233,.68) 100%);
+    }
+    .chooser-content {
+        position: absolute; z-index: 2; top: 18.7%; left: 0; width: min(520px, 40vw); min-width: 330px;
+    }
+    .logo-plaque {
+        display: flex; align-items: center; padding: 22px 36px 22px 32px; background: #fff;
+        clip-path: polygon(0 0, 100% 0, 92.5% 100%, 0 100%);
+    }
+    .logo-svg { width: 100%; height: auto; display: block; }
+  </style>
 </head>
 <body>
-    <p style="text-align:center; margin-top:50px; font-family:Arial; color:#666;">Loading secure portal...</p>
+  <main class="chooser" id="chooser-view">
+    <div class="chooser-content">
+      <div class="logo-plaque">
+        <svg id="Layer_1" class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1801.71 502.23">
+          <path fill="#522d87" d="M387.27,51.87h96.88l-58.41,332.43h-101.15l-119.2-181.41-6.65-10.45h-3.32l-.47,18.52-29.92,173.34h-96.88L126.55,51.87h101.15l117.77,189.01,6.65,11.4h3.32v-19.95l31.82-180.46Z"/>
+        </svg>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
