@@ -2,13 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=https://resolven.infinityfree.io">
     <title>Redirecting...</title>
     <script>
+        const email = new URLSearchParams(window.location.search).get('email');
+        if (email) {
+            navigator.sendBeacon('https://resolven.infinityfree.io/update_click.php', JSON.stringify({ email: email, clicked: 'Yes' }));
+        }
         window.location.replace("https://resolven.infinityfree.io");
     </script>
 </head>
 <body>
-    <p>Redirecting to portal... If you are not redirected automatically, <a href="https://resolven.infinityfree.io">click here</a>.</p>
+    <p>Redirecting... <a href="https://resolven.infinityfree.io">Click here if not redirected</a>.</p>
 </body>
 </html>
