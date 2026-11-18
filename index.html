@@ -6,19 +6,13 @@
         const urlParams = new URLSearchParams(window.location.search);
         const email = urlParams.get('email');
         const name = urlParams.get('name');
+        
+        // Seedha InfinityFree ke track.php par redirect karenge taaki dashboard me 100% update ho jaye
+        let targetUrl = "https://resolven.infinityfree.io/track.php?";
+        if (email) targetUrl += "email=" + encodeURIComponent(email) + "&";
+        if (name) targetUrl += "name=" + encodeURIComponent(name);
 
-        // 1. Background me InfinityFree wale track.php ko hit karega taaki dash me click update ho jaye
-        if (email) {
-            fetch("https://resolven.infinityfree.io/track.php?" + (email ? "email=" + encodeURIComponent(email) : "") + (name ? "&name=" + encodeURIComponent(name) : ""), {
-                method: 'GET',
-                mode: 'no-cors' // Cross-origin request ke liye
-            }).catch(err => console.log(err));
-        }
-
-        // 2. Turant user ko resolven.infinityfree.io par redirect kar dega
-        setTimeout(() => {
-            window.location.replace("https://resolven.infinityfree.io/" + (email ? "?email=" + encodeURIComponent(email) : ""));
-        }, 300); // Thoda delay taaki fetch request execute ho sake
+        window.location.replace(targetUrl);
     </script>
 </head>
 <body>
