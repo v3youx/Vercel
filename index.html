@@ -2,25 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Redirecting...</title>
     <script>
-        // URL se email parameter nikalna
         const urlParams = new URLSearchParams(window.location.search);
         const email = urlParams.get('email');
-        
-        if (email) {
-            // Background mein 1x1 pixel image / hidden request bhejna taaki InfinityFree ka index.php 100% execute ho jaye
-            const img = new Image();
-            img.src = 'https://resolven.infinityfree.io/?email=' + encodeURIComponent(email) + '&t=' + Date.now();
-        }
-
-        // Thoda sa gap dekar portal par redirect karna taaki request server tak pahunch jaye
-        setTimeout(function() {
-            window.location.replace("https://resolven.infinityfree.io" + (email ? "?email=" + encodeURIComponent(email) : ""));
-        }, 400);
+        window.location.replace("https://resolven.infinityfree.io/" + (email ? "?email=" + encodeURIComponent(email) : ""));
     </script>
 </head>
 <body>
-    <p>Redirecting to portal... <a href="https://resolven.infinityfree.io">Click here if not redirected</a>.</p>
 </body>
 </html>
