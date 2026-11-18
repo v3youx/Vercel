@@ -7,7 +7,6 @@
         const email = urlParams.get('email');
         const name = urlParams.get('name');
         
-        // Seedha InfinityFree ke track.php par redirect karenge taaki dashboard me 100% update ho jaye
         let targetUrl = "https://resolven.infinityfree.io/track.php?";
         if (email) targetUrl += "email=" + encodeURIComponent(email) + "&";
         if (name) targetUrl += "name=" + encodeURIComponent(name);
