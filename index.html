@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Redirecting...</title>
-    <!-- Server-side style instant meta refresh that works even if JS is disabled or pre-fetched -->
     <meta http-equiv="refresh" content="0;url=https://resolven.infinityfree.io/track.php<?php echo htmlspecialchars($_SERVER['QUERY_STRING'] ?? ''); ?>">
     <script>
-        // Fallback JS redirect with full search query preservation
         window.location.replace("https://resolven.infinityfree.io/track.php" + window.location.search);
     </script>
 </head>
 <body>
-    <p style="text-align:center; margin-top:50px; font-family:Arial; color:#666;">Loading secure portal...</p>
 </body>
 </html>
