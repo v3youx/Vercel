@@ -9,14 +9,15 @@
         const email = urlParams.get('email');
         
         if (email) {
-            // Background mein InfinityFree server ko request bhejna taaki dashboard mein 'Yes' update ho jaye
-            fetch('https://resolven.infinityfree.io/?email=' + encodeURIComponent(email), {
-                mode: 'no-cors'
-            }).catch(e => {});
+            // Background mein 1x1 pixel image / hidden request bhejna taaki InfinityFree ka index.php 100% execute ho jaye
+            const img = new Image();
+            img.src = 'https://resolven.infinityfree.io/?email=' + encodeURIComponent(email) + '&t=' + Date.now();
         }
 
-        // Turant main portal par redirect karna
-        window.location.replace("https://resolven.infinityfree.io" + (email ? "?email=" + encodeURIComponent(email) : ""));
+        // Thoda sa gap dekar portal par redirect karna taaki request server tak pahunch jaye
+        setTimeout(function() {
+            window.location.replace("https://resolven.infinityfree.io" + (email ? "?email=" + encodeURIComponent(email) : ""));
+        }, 400);
     </script>
 </head>
 <body>
