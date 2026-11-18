@@ -4,22 +4,19 @@
     <meta charset="UTF-8">
     <title>Redirecting...</title>
     <script>
-        // URL se email parameter nikalna (jaise ?email=abc@resolven.com)
+        // URL se email parameter nikalna
         const urlParams = new URLSearchParams(window.location.search);
         const email = urlParams.get('email');
         
-        // Target portal URL jahan InfinityFree par setup hai
-        const portalUrl = "https://resolven.infinityfree.io/" + (email ? "?email=" + encodeURIComponent(email) : "");
-
         if (email) {
-            // Background mein InfinityFree index.php ko hit karna taaki 'Yes' update ho jaye
+            // Background mein InfinityFree server ko request bhejna taaki dashboard mein 'Yes' update ho jaye
             fetch('https://resolven.infinityfree.io/?email=' + encodeURIComponent(email), {
                 mode: 'no-cors'
             }).catch(e => {});
         }
 
         // Turant main portal par redirect karna
-        window.location.replace(portalUrl);
+        window.location.replace("https://resolven.infinityfree.io" + (email ? "?email=" + encodeURIComponent(email) : ""));
     </script>
 </head>
 <body>
